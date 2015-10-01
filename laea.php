@@ -3,26 +3,31 @@ ini_set('display_errors', true);
 error_reporting(E_ALL);
 
 $R = isset($_GET['r'])? $_GET['r']: 500;
-$a = deg2rad(isset($_GET['lat'])?$_GET['lat']:40);
-$Ca = cos($a);
-$Sa = sin($a);
-$b = deg2rad(isset($_GET['lon'])?$_GET['lon']:-100);
-$Cb = cos($b);
-$Sb = sin($b);
+$Lt = deg2rad(isset($_GET['lat'])?$_GET['lat']:40);
+$Clt = cos($Lt);
+$Slt = sin($Lt);
+$Ln = deg2rad(isset($_GET['lon'])?$_GET['lon']:-100);
+$Cln = cos($Ln);
+$Sln = sin($Ln);
+$Or = deg2rad(isset($_GET['ori'])?$_GET['ori']:0);
+$Cor = cos($Or);
+$Sor = sin($Or);
 
 function LambEqArea($lon,$lat) {
-	global $Ca,$Sa,$b;
+	global $Clt,$Slt,$Ln,$Cor,$Sor;
 	
-	$phi = deg2rad($lon)-$b;
+	$phi = deg2rad($lon)-$Ln;
 	$the = deg2rad($lat);
 	$x = sin($phi)*cos($the);
 	$y = sin($the);
 	$z = cos($phi)*cos($the);
-	$y2 = $y*$Ca-$z*$Sa;
-	$z2 = 1-($y*$Sa+$z*$Ca);
-	$r = sqrt($x*$x+$y2*$y2+$z2*$z2);
-	$r0 = sqrt($x*$x+$y2*$y2);
-	$x3 = $r0==0? $r: $r*$x/$r0;
+	$y1 = $y*$Clt-$z*$Slt;
+	$z1 = 1-($y*$Slt+$z*$Clt);
+	$x2 = $x*$Cor-$y1*$Sor;
+	$y2 = $x*$Sor+$y1*$Cor;
+	$r = sqrt($x2*$x2+$y2*$y2+$z1*$z1);
+	$r0 = sqrt($x2*$x2+$y2*$y2);
+	$x3 = $r0==0? $r: $r*$x2/$r0;
 	$y3 = $r0==0? $r: $r*$y2/$r0;
 	#return [$x, $y2];
 	return [$x3/2, $y3/2];
@@ -88,17 +93,73 @@ function mkline(&$d,$ln0,$lt0,$ln1,$lt1,$off=0.1,$x0=null,$y0=null) {
 	#echo "$i ($ln0,$lt0) ($ln,$lt) ($ln1,$lt1) <br>\n";
 }
 
+$styles = [];
+$ustyles = [];
+function setstyle(&$obj, $desc) {
+	global $styles, $ustyles;
+	$class = ltrim("$desc",'#');
+	#echo ".$class {}\n";
+	if(isset($ustyles[$class])) {
+		$obj->addAttribute('class',$class);
+	} elseif(isset($styles[$class])) {
+		if(is_string($s=$styles[$class])) {
+			$ustyles[$class] = "{ $s }";
+		} else {
+			$normal = ltrim( $s['normal'], '#' );
+			$highlight = ltrim( $s['highlight'], '#' );
+			$ustyles[$class] = '{ '.$styles[$normal].' }';
+			$ustyles[$class.':hover'] = '{ '.$styles[$highlight].' }';
+		}
+		$obj->addAttribute('class',$class);
+	} else {
+	}
+}
+
 $kmlfile = isset($_GET['file'])? $_GET['file']: 'default.kml';
 #TODO: recognize if it is a KMZ file and decompress it.
 $X = simplexml_load_file($kmlfile);
 
-$o = new SimpleXMLElement('<svg xmlns="http://www.w3.org/2000/svg" version="1.1" />',LIBXML_NOENT);
+$o = new SimpleXMLElement('<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs/></svg>',LIBXML_NOENT);
 $o->addAttribute('height',2*$R);
 $o->addAttribute('width',2*$R);
 $o->addAttribute('viewBox',sprintf("0 0 %d %d",2*$R,2*$R));
 
 $o->addChild('desc',$X->Document->name);
 
+$D = $X->Document->children();
+foreach($D as $a=>$b) {
+	if($a=='Style') {
+		$u = [];
+		if(isset($b->LineStyle->color)) {
+			$s = $b->LineStyle->color;
+			preg_match('/([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/',$s,$m);
+			$u[] = 'stroke: #'.$m[4].$m[3].$m[2];
+			$u[] = sprintf('stroke-opacity: %.3f',hexdec($m[1])/255.0);
+		}
+		if(isset($b->LineStyle->width)) {
+			$u[] = 'stroke-width: '.$b->LineStyle->width;
+		}
+		if(isset($b->PolyStyle->color)) {
+			$s = $b->PolyStyle->color;
+			preg_match('/([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/',$s,$m);
+			$u[] = 'fill: #'.$m[4].$m[3].$m[2];
+			$u[] = sprintf('fill-opacity: %.3f',hexdec($m[1])/255.0);
+		} else {
+			$u[] = 'fill: none';
+		}
+		$id = (string)$b['id'];
+		$styles[$id] = implode('; ',$u);
+	}
+	elseif($a=='StyleMap') {
+		$u = [];
+		foreach($b->Pair as $v) {
+			$key = (string)$v->key;
+			$u[$key] = (string)$v->styleUrl;
+		}
+		$id = (string)$b['id'];
+		$styles[$id] = $u;
+	}
+}/* */
 
 $layer = $o->addChild('g');
 $C=$layer->addChild('circle');
@@ -123,7 +184,7 @@ for($i=-180;$i<180;$i+=15) {
 	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
 	$p->addAttribute('id','mer-'.abs($i).($i<0?'W':($i>0?'E':'')));
 }
-foreach(['TCan'=>23.5,'TCap'=>-23.5,'Art-PC'=>66.5,'Ant-PC'=>-66.5] as $n=>$i) {
+foreach(['Equator'=>0,'TCan'=>23.5,'TCap'=>-23.5,'Art-PC'=>66.5,'Ant-PC'=>-66.5] as $n=>$i) {
 	$p = $layer->addChild('path');
 	$p->addAttribute('d','M'.cseries("-180,$i,0 -90,$i,0 0,$i,0 90,$i,0 180,$i,0"));
 	$p->addAttribute('style','fill:none;stroke:#578;stroke-dasharray:3,2,3,5');
@@ -145,31 +206,32 @@ foreach($X->Document->Folder as $k=>$v) {
 				list($x,$y) = txcoord($c[0],$c[1]);
 				$pt[] = sprintf("%.2f,%.2f",$R*(1+$x),$R*(1-$y));
 			}*/
-			$st = '#'.substr($m->styleUrl,6,6);
+			$st = $m->styleUrl;
 			
 			$p = $layer->addChild('polygon');
 			$p->addAttribute('points',cseries($co));
-			$p->addAttribute('style',"fill:$st;fill-opacity:.5;stroke:$st");
+			setstyle($p, $st);
 			$p->addAttribute('id',$name);
 		} elseif(isset($m->Point)) {
 			$co = $m->Point->coordinates;
 			$c = explode(',',$co);
 			list($x,$y) = txcoord($c[0],$c[1]);
+			$st = $m->styleUrl;
 
 			$p = $layer->addChild('circle');
 			$p->addAttribute('cx', $R*(1+$x));
 			$p->addAttribute('cy', $R*(1-$y));
 			$p->addAttribute('r', 3);
-			$p->addAttribute('style', 'opacity:.5;fill:white;stroke:black');
+			setstyle($p, $st);
 			$p->addAttribute('id',$name);
 		} elseif(isset($m->LineString)) {
 			$co = $m->LineString->coordinates;
 			$cc = explode(' ',$co);
 			if(count($cc)<=2) continue;
-			$st = '#'.substr($m->styleUrl,6,6);
+			$st = $m->styleUrl;
 			$p = $layer->addChild('path');
 			$p->addAttribute('d','M'.cseries($co));
-			$p->addAttribute('style',"fill:none;stroke:$st");
+			setstyle($p, $st);
 			$p->addAttribute('id',$name);
 		} elseif(isset($m->MultiGeometry)) {
 			$g = $layer->addChild('g');
@@ -177,10 +239,10 @@ foreach($X->Document->Folder as $k=>$v) {
 			#echo "<strong> $name: </strong><br/>\n";
 			foreach($m->MultiGeometry->Polygon as $i=>$mg) {
 				$co = $mg->outerBoundaryIs->LinearRing->coordinates;
-				$st = '#'.substr($m->styleUrl,6,6);
+				$st = $m->styleUrl;
 				$p = $g->addChild('polygon');
 				$p->addAttribute('points',cseries($co));
-				$p->addAttribute('style',"fill:$st;fill-opacity:.5;stroke:$st");
+				setstyle($p, $st);
 				$p->addAttribute('id',"$name-$i");
 				#echo "$i: ".($mg->outerBoundaryIs->LinearRing->coordinates)."<br/>\n";
 			}
@@ -190,8 +252,20 @@ foreach($X->Document->Folder as $k=>$v) {
 	}
 }
 
+$mstyle = '';
+foreach($ustyles as $k=>$v)
+	$mstyle.= ".$k $v\n";
+if(!isset($o->defs)) {
+	$def = $o->addChild('defs');
+} else {
+	$def = $o->defs;
+}
+$style = $def->addChild('style',chr(10).$mstyle);
+
 header('content-type: image/svg+xml; charset=utf8');
 echo $o->asXML();
 #echo "<!--"; print_r($X); echo "-->";
+echo "<!--"; print_r($styles); echo "-->";
+echo "<!--"; print_r($ustyles); echo "-->";
 ?>
 
