@@ -173,7 +173,6 @@ foreach($X->Document->Folder as $k=>$v) {
 	}
 }
 
-// Mora: 4.680.000 (dos facturas), +octubre: total: 9.172.000; 9.460.000 (con mora); 
 header('content-type: image/svg+xml; charset=utf8');
 echo $o->asXML();
 #echo "<!--"; print_r($X); echo "-->";
