@@ -46,7 +46,9 @@ function cseries($str) {
 	$sx = $sy = null;
 	$d = [];
 	foreach($cpairs as $cp) {
+		if(empty(trim($cp))) continue;
 		list($lon,$lat,$h) = explode(',',$cp);
+		if(!is_numeric($lon)) { echo "<em>$cp</em> [$name]<br>\n"; continue; }
 		list($x,$y) = txcoord($lon,$lat);
 		if(is_null($slat)) {
 			#echo 'm ';
@@ -169,6 +171,21 @@ foreach($X->Document->Folder as $k=>$v) {
 			$p->addAttribute('d','M'.cseries($co));
 			$p->addAttribute('style',"fill:none;stroke:$st");
 			$p->addAttribute('id',$name);
+		} elseif(isset($m->MultiGeometry)) {
+			$g = $layer->addChild('g');
+			$g->addAttribute('id',$name);
+			#echo "<strong> $name: </strong><br/>\n";
+			foreach($m->MultiGeometry->Polygon as $i=>$mg) {
+				$co = $mg->outerBoundaryIs->LinearRing->coordinates;
+				$st = '#'.substr($m->styleUrl,6,6);
+				$p = $g->addChild('polygon');
+				$p->addAttribute('points',cseries($co));
+				$p->addAttribute('style',"fill:$st;fill-opacity:.5;stroke:$st");
+				$p->addAttribute('id',"$name-$i");
+				#echo "$i: ".($mg->outerBoundaryIs->LinearRing->coordinates)."<br/>\n";
+			}
+		} else {
+			echo "<strong> $name </strong><br/>\n";
 		}
 	}
 }
