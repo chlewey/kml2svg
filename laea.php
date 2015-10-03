@@ -2,14 +2,14 @@
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
-$R = isset($_GET['r'])? $_GET['r']: 500;
-$Lt = deg2rad(isset($_GET['lat'])?$_GET['lat']:40);
+$R = empty($_GET['r'])? 500: $_GET['r'];
+$Lt = isset($_GET['lat']) && $_GET['lat']!=''? deg2rad((float)$_GET['lat']): 0.7;
 $Clt = cos($Lt);
 $Slt = sin($Lt);
-$Ln = deg2rad(isset($_GET['lon'])?$_GET['lon']:-100);
+$Ln = isset($_GET['lon']) && $_GET['lon']!=''? deg2rad((float)$_GET['lon']): -1.7;
 $Cln = cos($Ln);
 $Sln = sin($Ln);
-$Or = deg2rad(isset($_GET['ori'])?$_GET['ori']:0);
+$Or = empty($_GET['ori'])? 0: deg2rad((float)$_GET['ori']);
 $Cor = cos($Or);
 $Sor = sin($Or);
 
@@ -126,29 +126,45 @@ $o->addAttribute('viewBox',sprintf("0 0 %d %d",2*$R,2*$R));
 
 $o->addChild('desc',$X->Document->name);
 
+function arr2sty(array $ar, $def='') {
+	$u=[];
+	foreach($ar as $k=>$v)
+		$u[] = "$k: $v";
+	return implode('; ', $u);
+}
+
 $D = $X->Document->children();
+$defU = ['opacity'=>'0.75', 'fill'=>'white', 'stroke'=>'black'];
 foreach($D as $a=>$b) {
 	if($a=='Style') {
 		$u = [];
 		if(isset($b->LineStyle->color)) {
 			$s = $b->LineStyle->color;
 			preg_match('/([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/',$s,$m);
-			$u[] = 'stroke: #'.$m[4].$m[3].$m[2];
-			$u[] = sprintf('stroke-opacity: %.3f',hexdec($m[1])/255.0);
+			$u['stroke'] = '#'.$m[4].$m[3].$m[2];
+			$u['stroke-opacity'] = sprintf('%.3f',hexdec($m[1])/255.0);
+			if(!isset($b->PolyStyle))
+				$u['fill'] = 'none';
 		}
 		if(isset($b->LineStyle->width)) {
-			$u[] = 'stroke-width: '.$b->LineStyle->width;
+			$u['stroke-width'] = $b->LineStyle->width;
 		}
 		if(isset($b->PolyStyle->color)) {
 			$s = $b->PolyStyle->color;
 			preg_match('/([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/',$s,$m);
-			$u[] = 'fill: #'.$m[4].$m[3].$m[2];
-			$u[] = sprintf('fill-opacity: %.3f',hexdec($m[1])/255.0);
-		} else {
-			$u[] = 'fill: none';
+			$u['fill'] = '#'.$m[4].$m[3].$m[2];
+			$u['fill-opacity'] = sprintf('%.3f',hexdec($m[1])/255.0);
+		}
+		if(isset($b->IconStyle->color)) {
+			$s = $b->IconStyle->color;
+			preg_match('/([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/',$s,$m);
+			$u['fill'] = '#'.$m[4].$m[3].$m[2];
+			$u['fill-opacity'] = sprintf('%.3f',hexdec($m[1])/255.0);
+			$u['stroke'] = 'black';
+			$u['stroke-opacity'] = '0.5';
 		}
 		$id = (string)$b['id'];
-		$styles[$id] = implode('; ',$u);
+		$styles[$id] = empty($u)? arr2sty($defU): arr2sty($u);
 	}
 	elseif($a=='StyleMap') {
 		$u = [];
@@ -166,7 +182,7 @@ $C=$layer->addChild('circle');
 $C->addAttribute('cx',$R);
 $C->addAttribute('cy',$R);
 $C->addAttribute('r',$R);
-$C->addAttribute('fill','#9bc');
+$C->addAttribute('fill','#134');
 $C->addAttribute('id','globe');
 $p = $layer->addChild('path');
 $p->addAttribute('d',sprintf("m %d,%d 0,%d m %d,%d %d,0",$R,0.97*$R,0.06*$R,-0.03*$R,-0.03*$R,0.06*$R));
