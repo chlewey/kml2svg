@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta charset=utf-8>
-  <meta name="viewport" content="initial-scale=1">
+
   <title>Lambert</title>
 </head>
 
@@ -28,16 +29,15 @@
       <tr>
         <td><label for=file>Archivo</label></td>
         <td><select id=file name=file><option value="">Seleccione un archivo</option><?php
-	$d = scandir('.');
-	foreach($d as $f) {
-		$p = pathinfo($f);
-		if($p['extension']=='kml')
-			echo "<option>$f</option>";
-	}
+        $d = scandir('.');
+        foreach($d as $f) {
+			$p = pathinfo($f);
+			if($p['extension']=='kml')
+				echo "<option>$f</option>";
+		}
         ?></select></td>
       </tr>
     </table><input type=submit>
   </form>
-  <p>(&#x186;) 2015. <a href="http://github.com/chlewey/kml2svg">Download from GitHub</a></p>
 </body>
 </html>

@@ -30,7 +30,7 @@ function LambEqArea($lon,$lat) {
 	$x3 = $r0==0? $r: $r*$x2/$r0;
 	$y3 = $r0==0? $r: $r*$y2/$r0;
 	#return [$x, $y2];
-	return [$x3/2, $y3/2];
+	return array($x3/2, $y3/2);
 }
 
 function txcoord($lon,$lat) {
@@ -57,7 +57,8 @@ function cseries($str) {
 		list($x,$y) = txcoord($lon,$lat);
 		if(is_null($slat)) {
 			#echo 'm ';
-			$d[] = sprintf("%.2f,%.2f",$R*(1+$x),$R*(1-$y));
+			#$d[] = sprintf("%.2f,%.2f",$R*(1+$x),$R*(1-$y));
+			$d[] = (round($R*(1+$x)*8)/8).','.(round($R*(1-$y)*8)/8);
 		} else {
 			#echo 'l ';
 			mkline($d,$slon,$slat,$lon,$lat,0.01);
@@ -86,7 +87,8 @@ function mkline(&$d,$ln0,$lt0,$ln1,$lt1,$off=0.1,$x0=null,$y0=null) {
 			break;
 		$i*=0.63;
 	}
-	$d[] = sprintf("%.2f,%.2f",$R*(1+$x),$R*(1-$y));
+	#$d[] = sprintf("%.2f,%.2f",$R*(1+$x),$R*(1-$y));
+	$d[] = (round($R*(1+$x)*8)/8).','.(round($R*(1-$y)*8)/8);
 	if($i<1.0) {
 		mkline($d,$ln,$lt,$ln1,$lt1,$off,$x,$y);
 	}
@@ -182,7 +184,7 @@ $C=$layer->addChild('circle');
 $C->addAttribute('cx',$R);
 $C->addAttribute('cy',$R);
 $C->addAttribute('r',$R);
-$C->addAttribute('fill','#134');
+$C->addAttribute('fill','#134	');
 $C->addAttribute('id','globe');
 $p = $layer->addChild('path');
 $p->addAttribute('d',sprintf("m %d,%d 0,%d m %d,%d %d,0",$R,0.97*$R,0.06*$R,-0.03*$R,-0.03*$R,0.06*$R));
@@ -250,18 +252,21 @@ foreach($X->Document->Folder as $k=>$v) {
 			setstyle($p, $st);
 			$p->addAttribute('id',$name);
 		} elseif(isset($m->MultiGeometry)) {
-			$g = $layer->addChild('g');
+			$g = $layer->addChild('path');
 			$g->addAttribute('id',$name);
 			#echo "<strong> $name: </strong><br/>\n";
+			$st = $m->styleUrl;
+			setstyle($g, $st);
+			$d = '';
 			foreach($m->MultiGeometry->Polygon as $i=>$mg) {
 				$co = $mg->outerBoundaryIs->LinearRing->coordinates;
-				$st = $m->styleUrl;
-				$p = $g->addChild('polygon');
-				$p->addAttribute('points',cseries($co));
-				setstyle($p, $st);
-				$p->addAttribute('id',"$name-$i");
+				#$p = $g->addChild('polygon');
+				#$p->addAttribute('points',cseries($co));
+				$d.= 'M '.cseries($co).' z';
+				#$p->addAttribute('id',"$name-$i");
 				#echo "$i: ".($mg->outerBoundaryIs->LinearRing->coordinates)."<br/>\n";
 			}
+			$g->addAttribute('d',$d);
 		} else {
 			echo "<strong> $name </strong><br/>\n";
 		}
