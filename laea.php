@@ -186,23 +186,36 @@ $C=$layer->addChild('circle');
 $C->addAttribute('cx',$R);
 $C->addAttribute('cy',$R);
 $C->addAttribute('r',$R);
-$C->addAttribute('fill','#134	');
+$glob = empty($_GET['glob'])? '#134': $_GET['glob'];
+$C->addAttribute('fill',$glob);
 $C->addAttribute('id','globe');
 $p = $layer->addChild('path');
 $p->addAttribute('d',sprintf("m %d,%d 0,%d m %d,%d %d,0",$R,0.97*$R,0.06*$R,-0.03*$R,-0.03*$R,0.06*$R));
 $p->addAttribute('style','fill:none;stroke:black;opacity:0.25');
 $p->addAttribute('id','croshairs');
-for($i=-75;$i<=75;$i+=15) {
+$mer = empty($_GET['lines'])? (empty($_GET['mer'])? 15: (int)$_GET['mer']): (int)$_GET['lines'];
+$par = empty($_GET['lines'])? (empty($_GET['par'])? 15: (int)$_GET['par']): (int)$_GET['lines'];
+for($i=$par;$i<90;$i+=$par) {
 	$p = $layer->addChild('path');
 	$p->addAttribute('d','M'.cseries("-180,$i,0 -90,$i,0 0,$i,0 90,$i,0 180,$i,0"));
 	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
-	$p->addAttribute('id','par-'.abs($i).($i<0?'S':($i>0?'N':'')));
+	$p->addAttribute('id','par-'.abs($i).($i>0?'N':''));
+	if($i==0) continue;
+	$p = $layer->addChild('path');
+	$p->addAttribute('d','M'.cseries("-180,-$i,0 -90,-$i,0 0,-$i,0 90,-$i,0 180,-$i,0"));
+	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
+	$p->addAttribute('id','par-'.abs($i).'S');
 }
-for($i=-180;$i<180;$i+=15) {
+for($i=0;$i<=180;$i+=$mer) {
 	$p = $layer->addChild('path');
 	$p->addAttribute('d','M'.cseries("$i,89,0 $i,0,0 $i,-89,0"));
 	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
-	$p->addAttribute('id','mer-'.abs($i).($i<0?'W':($i>0?'E':'')));
+	$p->addAttribute('id','mer-'.abs($i).($i>0?'E':''));
+	if($i==0 || $i==180) continue;
+	$p = $layer->addChild('path');
+	$p->addAttribute('d','M'.cseries("-$i,89,0 -$i,0,0 -$i,-89,0"));
+	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
+	$p->addAttribute('id','mer-'.abs($i).'W');
 }
 foreach(array('Equator'=>0,'TCan'=>23.5,'TCap'=>-23.5,'Art-PC'=>66.5,'Ant-PC'=>-66.5) as $n=>$i) {
 	$p = $layer->addChild('path');

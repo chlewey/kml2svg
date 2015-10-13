@@ -189,7 +189,7 @@
 				<width>1</width>
 			</LineStyle>
 			<PolyStyle>
-				<color>660000ff</color>
+				<color>66ffff00</color>
 			</PolyStyle>
 			<BalloonStyle>
 				<text>$[description]</text>
@@ -201,7 +201,7 @@
 				<width>2</width>
 			</LineStyle>
 			<PolyStyle>
-				<color>990000ff</color>
+				<color>99ffff00</color>
 			</PolyStyle>
 			<BalloonStyle>
 				<text>$[description]</text>
@@ -226,7 +226,7 @@
 				<width>1</width>
 			</LineStyle>
 			<PolyStyle>
-				<color>660000ff</color>
+				<color>66ff0000</color>
 			</PolyStyle>
 			<BalloonStyle>
 				<text>$[description]</text>
@@ -238,7 +238,7 @@
 				<width>2</width>
 			</LineStyle>
 			<PolyStyle>
-				<color>990000ff</color>
+				<color>99ff0000</color>
 			</PolyStyle>
 			<BalloonStyle>
 				<text>$[description]</text>
@@ -263,7 +263,7 @@
 				<width>1</width>
 			</LineStyle>
 			<PolyStyle>
-				<color>660000ff</color>
+				<color>66ff00ff</color>
 			</PolyStyle>
 			<BalloonStyle>
 				<text>$[description]</text>
@@ -275,7 +275,7 @@
 				<width>2</width>
 			</LineStyle>
 			<PolyStyle>
-				<color>990000ff</color>
+				<color>99ff00ff</color>
 			</PolyStyle>
 			<BalloonStyle>
 				<text>$[description]</text>
@@ -2688,7 +2688,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> United States Virgin Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>United States Virgin Islands</value>
@@ -2699,7 +2699,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Namibia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Namibia</value>
@@ -2710,7 +2710,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Wallis and Futuna Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Wallis and Futuna Islands</value>
@@ -2721,7 +2721,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Samoa
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Samoa</value>
@@ -2732,7 +2732,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Swaziland
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Swaziland</value>
@@ -2754,7 +2754,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Zambia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Zambia</value>
@@ -2765,7 +2765,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Zimbabwe
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Zimbabwe</value>
@@ -2776,7 +2776,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Indonesia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Indonesia</value>
@@ -2787,7 +2787,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Guadeloupe
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Guadeloupe</value>
@@ -2798,7 +2798,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Netherlands Antilles
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Netherlands Antilles</value>
@@ -2820,7 +2820,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> East Timor
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>East Timor</value>
@@ -2831,7 +2831,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Pitcairn Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Pitcairn Islands</value>
@@ -2842,7 +2842,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Palau
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Palau</value>
@@ -2853,7 +2853,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Marshall Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Marshall Islands</value>
@@ -2864,7 +2864,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Saint Pierre and Miquelon
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Saint Pierre and Miquelon</value>
@@ -2886,7 +2886,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> San Marino
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>San Marino</value>
@@ -2897,7 +2897,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Turks and Caicos Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Turks and Caicos Islands</value>
@@ -2908,7 +2908,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Western Sahara
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Western Sahara</value>
@@ -2919,7 +2919,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Serbia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Serbia</value>
@@ -2930,7 +2930,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Holy See (Vatican City)
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Holy See (Vatican City)</value>
@@ -2952,7 +2952,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Saint Martin
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Saint Martin</value>
@@ -2963,7 +2963,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Saint Barthelemy
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Saint Barthelemy</value>
@@ -2974,7 +2974,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Guernsey
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Guernsey</value>
@@ -2985,7 +2985,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Jersey
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Jersey</value>
@@ -2996,7 +2996,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> South Georgia South Sandwich Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>South Georgia South Sandwich Islands</value>
