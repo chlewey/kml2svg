@@ -1038,7 +1038,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Gabon
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Gabon</value>
@@ -1049,7 +1049,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Georgia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Georgia</value>
@@ -1060,7 +1060,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Ghana
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Ghana</value>
@@ -1071,7 +1071,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Grenada
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Grenada</value>
@@ -1082,7 +1082,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Greenland
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Greenland</value>
@@ -1104,7 +1104,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Guam
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Guam</value>
@@ -1115,7 +1115,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Greece
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Greece</value>
@@ -1126,7 +1126,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Guatemala
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Guatemala</value>
@@ -1137,7 +1137,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Guinea
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Guinea</value>
@@ -1148,7 +1148,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Guyana
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Guyana</value>
@@ -1170,7 +1170,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Honduras
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Honduras</value>
@@ -1181,7 +1181,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Croatia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Croatia</value>
@@ -1192,7 +1192,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Hungary
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Hungary</value>
@@ -1203,7 +1203,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Iceland
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Iceland</value>
@@ -1214,7 +1214,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> India
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>India</value>
@@ -1236,7 +1236,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Israel
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Israel</value>
@@ -1247,7 +1247,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Italy
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Italy</value>
@@ -1258,7 +1258,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Cote d'Ivoire
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Cote d'Ivoire</value>
@@ -1269,7 +1269,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Iraq
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Iraq</value>
@@ -1280,7 +1280,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Japan
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Japan</value>
@@ -1302,7 +1302,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Jordan
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Jordan</value>
@@ -1313,7 +1313,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Kenya
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Kenya</value>
@@ -1324,7 +1324,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Kyrgyzstan
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Kyrgyzstan</value>
@@ -1335,7 +1335,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> North Korea
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>North Korea</value>
@@ -1346,7 +1346,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Kiribati
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Kiribati</value>
@@ -1368,7 +1368,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Kuwait
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Kuwait</value>
@@ -1379,7 +1379,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Kazakhstan
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Kazakhstan</value>
@@ -1390,7 +1390,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Lao People's Democratic Republic
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Lao People's Democratic Republic</value>
@@ -1401,7 +1401,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Lebanon
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Lebanon</value>
@@ -1412,7 +1412,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Latvia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Latvia</value>
@@ -1434,7 +1434,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Lithuania
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Lithuania</value>
@@ -1445,7 +1445,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Liberia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Liberia</value>
@@ -1456,7 +1456,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Slovakia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Slovakia</value>
@@ -1467,7 +1467,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Liechtenstein
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Liechtenstein</value>
@@ -1478,7 +1478,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Libya
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Libya</value>
@@ -1500,7 +1500,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Martinique
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Martinique</value>
@@ -1511,7 +1511,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Mongolia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Mongolia</value>
@@ -1522,7 +1522,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Montserrat
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Montserrat</value>
@@ -1533,7 +1533,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Macedonia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Macedonia</value>
@@ -1544,7 +1544,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Mali
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Mali</value>
@@ -1566,7 +1566,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Mauritius
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Mauritius</value>
@@ -1577,7 +1577,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Mauritania
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Mauritania</value>
@@ -1588,7 +1588,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Malta
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Malta</value>
@@ -1599,7 +1599,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Oman
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Oman</value>
@@ -1610,7 +1610,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Maldives
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Maldives</value>
@@ -1632,7 +1632,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Malaysia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Malaysia</value>
@@ -1643,7 +1643,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Mozambique
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Mozambique</value>
@@ -1654,7 +1654,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Malawi
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Malawi</value>
@@ -1665,7 +1665,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> New Caledonia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>New Caledonia</value>
@@ -1676,7 +1676,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Niue
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Niue</value>
@@ -1698,7 +1698,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Aruba
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Aruba</value>
@@ -1709,7 +1709,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Anguilla
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Anguilla</value>
@@ -1720,7 +1720,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Belgium
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Belgium</value>
@@ -1731,7 +1731,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Hong Kong
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Hong Kong</value>
@@ -1742,7 +1742,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Northern Mariana Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Northern Mariana Islands</value>
@@ -1764,7 +1764,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Andorra
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Andorra</value>
@@ -1775,7 +1775,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Gibraltar
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Gibraltar</value>
@@ -1786,7 +1786,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Isle of Man
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Isle of Man</value>
@@ -1797,7 +1797,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Luxembourg
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Luxembourg</value>
@@ -1808,7 +1808,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Macau
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Macau</value>
@@ -1830,7 +1830,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Palestine
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Palestine</value>
@@ -1841,7 +1841,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Montenegro
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Montenegro</value>
@@ -1852,7 +1852,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Mayotte
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Mayotte</value>
@@ -1863,7 +1863,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> land Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>land Islands</value>
@@ -1874,7 +1874,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Norfolk Island
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Norfolk Island</value>
@@ -1896,7 +1896,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Antarctica
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Antarctica</value>
@@ -1907,7 +1907,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Bouvet Island
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Bouvet Island</value>
@@ -1918,7 +1918,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> French Southern and Antarctic Lands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>French Southern and Antarctic Lands</value>
@@ -1929,7 +1929,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Heard Island and McDonald Islands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Heard Island and McDonald Islands</value>
@@ -1940,7 +1940,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> British Indian Ocean Territory
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>British Indian Ocean Territory</value>
@@ -1951,7 +1951,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Christmas Island
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Christmas Island</value>
@@ -1973,7 +1973,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Vanuatu
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Vanuatu</value>
@@ -1984,7 +1984,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Nigeria
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Nigeria</value>
@@ -1995,7 +1995,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Netherlands
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Netherlands</value>
@@ -2006,7 +2006,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Norway
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Norway</value>
@@ -2017,7 +2017,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Nepal
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Nepal</value>
@@ -2028,7 +2028,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Nauru
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Nauru</value>
@@ -2039,7 +2039,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Suriname
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Suriname</value>
@@ -2050,7 +2050,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Nicaragua
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Nicaragua</value>
@@ -2061,7 +2061,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> New Zealand
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>New Zealand</value>
@@ -2072,7 +2072,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Paraguay
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Paraguay</value>
@@ -2094,7 +2094,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Pakistan
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Pakistan</value>
@@ -2105,7 +2105,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Poland
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Poland</value>
@@ -2116,7 +2116,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Panama
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Panama</value>
@@ -2127,7 +2127,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Portugal
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Portugal</value>
@@ -2138,7 +2138,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Papua New Guinea
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Papua New Guinea</value>
@@ -2160,7 +2160,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Qatar
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Qatar</value>
@@ -2171,7 +2171,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Reunion
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Reunion</value>
@@ -2182,7 +2182,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Romania
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Romania</value>
@@ -2193,7 +2193,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Moldova
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Moldova</value>
@@ -2204,7 +2204,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Philippines
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Philippines</value>
@@ -2226,7 +2226,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Russia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style5-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Russia</value>
@@ -2237,7 +2237,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Rwanda
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style4-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Rwanda</value>
@@ -2248,7 +2248,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Saudi Arabia
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style3-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Saudi Arabia</value>
@@ -2259,7 +2259,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Saint Kitts and Nevis
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style2-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Saint Kitts and Nevis</value>
@@ -2270,7 +2270,7 @@
 			<description><![CDATA[<div class="googft-info-window" style="font-family:sans-serif">
 <b>Name:</b> Seychelles
 </div>]]></description>
-			<styleUrl>#Style0-polygon-3-map</styleUrl>
+			<styleUrl>#Style1-polygon-3-map</styleUrl>
 			<ExtendedData>
 				<Data name='Name'>
 					<value>Seychelles</value>
