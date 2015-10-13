@@ -15,7 +15,7 @@ $Sor = sin($Or);
 
 function LambEqArea($lon,$lat) {
 	global $Clt,$Slt,$Ln,$Cor,$Sor;
-	
+
 	$phi = deg2rad($lon)-$Ln;
 	$the = deg2rad($lat);
 	$x = sin($phi)*cos($the);
@@ -51,7 +51,7 @@ function cseries($str) {
 	$sx = $sy = null;
 	$d = array();
 	foreach($cpairs as $cp) {
-		if(empty(trim($cp))) continue;
+		if(trim($cp)=="") continue;
 		list($lon,$lat/*,$h*/) = explode(',',$cp);
 		if(!is_numeric($lon)) { echo "<em>$cp</em> [$name]<br>\n"; continue; }
 		list($x,$y) = txcoord($lon,$lat);
