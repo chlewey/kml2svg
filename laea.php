@@ -49,10 +49,10 @@ function cseries($str) {
 	#echo count($cpairs)." points) <br>\n";
 	$slon = $slat = null;
 	$sx = $sy = null;
-	$d = [];
+	$d = array();
 	foreach($cpairs as $cp) {
 		if(empty(trim($cp))) continue;
-		list($lon,$lat,$h) = explode(',',$cp);
+		list($lon,$lat/*,$h*/) = explode(',',$cp);
 		if(!is_numeric($lon)) { echo "<em>$cp</em> [$name]<br>\n"; continue; }
 		list($x,$y) = txcoord($lon,$lat);
 		if(is_null($slat)) {
@@ -95,8 +95,8 @@ function mkline(&$d,$ln0,$lt0,$ln1,$lt1,$off=0.1,$x0=null,$y0=null) {
 	#echo "$i ($ln0,$lt0) ($ln,$lt) ($ln1,$lt1) <br>\n";
 }
 
-$styles = [];
-$ustyles = [];
+$styles = array();
+$ustyles = array();
 function setstyle(&$obj, $desc) {
 	global $styles, $ustyles;
 	$class = ltrim("$desc",'#');
@@ -117,11 +117,11 @@ function setstyle(&$obj, $desc) {
 	}
 }
 
-$kmlfile = isset($_GET['file'])? $_GET['file']: 'default.kml';
+$kmlfile = empty($_GET['file'])? 'default.kml': $_GET['file'];
 #TODO: recognize if it is a KMZ file and decompress it.
 $X = simplexml_load_file($kmlfile);
 
-$o = new SimpleXMLElement('<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs/></svg>',LIBXML_NOENT);
+$o = new SimpleXMLElement('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" onload="init(evt)"><script id="svgpan" xlink:href="SVGPan.js" /><defs/></svg>',LIBXML_NOENT);
 $o->addAttribute('height',2*$R);
 $o->addAttribute('width',2*$R);
 $o->addAttribute('viewBox',sprintf("0 0 %d %d",2*$R,2*$R));
@@ -129,17 +129,17 @@ $o->addAttribute('viewBox',sprintf("0 0 %d %d",2*$R,2*$R));
 $o->addChild('desc',$X->Document->name);
 
 function arr2sty(array $ar, $def='') {
-	$u=[];
+	$u=array();
 	foreach($ar as $k=>$v)
 		$u[] = "$k: $v";
 	return implode('; ', $u);
 }
 
 $D = $X->Document->children();
-$defU = ['opacity'=>'0.75', 'fill'=>'white', 'stroke'=>'black'];
+$defU = array('opacity'=>'0.75', 'fill'=>'white', 'stroke'=>'black');
 foreach($D as $a=>$b) {
 	if($a=='Style') {
-		$u = [];
+		$u = array();
 		if(isset($b->LineStyle->color)) {
 			$s = $b->LineStyle->color;
 			preg_match('/([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})/',$s,$m);
@@ -169,7 +169,7 @@ foreach($D as $a=>$b) {
 		$styles[$id] = empty($u)? arr2sty($defU): arr2sty($u);
 	}
 	elseif($a=='StyleMap') {
-		$u = [];
+		$u = array();
 		foreach($b->Pair as $v) {
 			$key = (string)$v->key;
 			$u[$key] = (string)$v->styleUrl;
@@ -179,7 +179,9 @@ foreach($D as $a=>$b) {
 	}
 }/* */
 
-$layer = $o->addChild('g');
+$All = $o->addChild('g');
+$All->addAttribute('id','All');
+$layer = $All->addChild('g');
 $C=$layer->addChild('circle');
 $C->addAttribute('cx',$R);
 $C->addAttribute('cy',$R);
@@ -202,7 +204,7 @@ for($i=-180;$i<180;$i+=15) {
 	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
 	$p->addAttribute('id','mer-'.abs($i).($i<0?'W':($i>0?'E':'')));
 }
-foreach(['Equator'=>0,'TCan'=>23.5,'TCap'=>-23.5,'Art-PC'=>66.5,'Ant-PC'=>-66.5] as $n=>$i) {
+foreach(array('Equator'=>0,'TCan'=>23.5,'TCap'=>-23.5,'Art-PC'=>66.5,'Ant-PC'=>-66.5) as $n=>$i) {
 	$p = $layer->addChild('path');
 	$p->addAttribute('d','M'.cseries("-180,$i,0 -90,$i,0 0,$i,0 90,$i,0 180,$i,0"));
 	$p->addAttribute('style','fill:none;stroke:#578;stroke-dasharray:3,2,3,5');
@@ -210,7 +212,7 @@ foreach(['Equator'=>0,'TCan'=>23.5,'TCap'=>-23.5,'Art-PC'=>66.5,'Ant-PC'=>-66.5]
 }
 
 foreach($X->Document->Folder as $k=>$v) {
-	$layer = $o->addChild('g');
+	$layer = $All->addChild('g');
 	$layer->addAttribute('id',$v->name);
 	$pm = $v->Placemark;
 	foreach($pm as $m) {
@@ -270,6 +272,73 @@ foreach($X->Document->Folder as $k=>$v) {
 		} else {
 			echo "<strong> $name </strong><br/>\n";
 		}
+	}
+}
+
+$pm = $X->Document->Placemark;
+foreach($pm as $m) {
+	$name = isset($m->name)? $m->name: null;
+	if(is_null($name)) {
+		foreach($m->ExtendedData as $v=>$w) {
+			#print_r([$v,$w,$w->Data,(string)$w->Data['name'],$w->Data->value]);
+			if((string)$w->Data['name']=='Name')
+				$name = $w->Data->value;
+		}
+	}
+	if(isset($m->Polygon)) {
+		$co = $m->Polygon->outerBoundaryIs->LinearRing->coordinates;
+		/*$cc = explode(' ',$co);
+		$pt = [];
+		foreach($cc as $cu) {
+			$c = explode(',',$cu);
+			list($x,$y) = txcoord($c[0],$c[1]);
+			$pt[] = sprintf("%.2f,%.2f",$R*(1+$x),$R*(1-$y));
+		}*/
+		$st = $m->styleUrl;
+		
+		$p = $layer->addChild('polygon');
+		$p->addAttribute('points',cseries($co));
+		setstyle($p, $st);
+		$p->addAttribute('id',$name);
+	} elseif(isset($m->Point)) {
+		$co = $m->Point->coordinates;
+		$c = explode(',',$co);
+		list($x,$y) = txcoord($c[0],$c[1]);
+		$st = $m->styleUrl;
+
+		$p = $layer->addChild('circle');
+		$p->addAttribute('cx', $R*(1+$x));
+		$p->addAttribute('cy', $R*(1-$y));
+		$p->addAttribute('r', 3);
+		setstyle($p, $st);
+		$p->addAttribute('id',$name);
+	} elseif(isset($m->LineString)) {
+		$co = $m->LineString->coordinates;
+		$cc = explode(' ',$co);
+		if(count($cc)<=2) continue;
+		$st = $m->styleUrl;
+		$p = $layer->addChild('path');
+		$p->addAttribute('d','M'.cseries($co));
+		setstyle($p, $st);
+		$p->addAttribute('id',$name);
+	} elseif(isset($m->MultiGeometry)) {
+		$g = $layer->addChild('path');
+		$g->addAttribute('id',$name);
+		#echo "<strong> $name: </strong><br/>\n";
+		$st = $m->styleUrl;
+		setstyle($g, $st);
+		$d = '';
+		foreach($m->MultiGeometry->Polygon as $i=>$mg) {
+			$co = $mg->outerBoundaryIs->LinearRing->coordinates;
+			#$p = $g->addChild('polygon');
+			#$p->addAttribute('points',cseries($co));
+			$d.= 'M '.cseries($co).' z';
+			#$p->addAttribute('id',"$name-$i");
+			#echo "$i: ".($mg->outerBoundaryIs->LinearRing->coordinates)."<br/>\n";
+		}
+		$g->addAttribute('d',$d);
+	} else {
+		echo "<strong> $name </strong><br/>\n";
 	}
 }
 
