@@ -115,8 +115,8 @@ class projection {
 	function __construct($kmlfile, $width=720, $height=540, $viewBox=null) {
 		$kml = simplexml_load_file($kmlfile);
 		$this->document = $kml->Document;
-		$this->min = 0.001;
-		$this->max = 0.1;
+		$this->min = 0.0001;
+		$this->off = 0.1;
 		
 		$this->width = $width;
 		$this->height = $height;
@@ -199,8 +199,8 @@ class projection {
 	}
 
 	function mkline(&$d,$ln0,$lt0,$ln1,$lt1,$x0=null,$y0=null) {
-		$off = isset($this->off)? $this->off: 10;
-		$min = isset($this->min)? $this->min: 0.00001;
+		$off = isset($this->off)? $this->off: 0.1;
+		$min = isset($this->min)? $this->min: 0.0001;
 		/*if($ln0-$ln1>180)
 			return $this->mkline($d,$ln0,$lt0,$ln1+360,$lt1,$x0,$y0);
 		if($ln1-$ln0>180)
