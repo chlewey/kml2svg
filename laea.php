@@ -42,7 +42,7 @@ function txcoord($lon,$lat) {
 }
 
 $R = isset($_GET['r'])? $_GET['r']: 500;
-function cseries($str) {
+function cseries($str,$par=false) {
 	global $R,$name;
 	#echo "<b>$name:</b> (";
 	$cpairs = explode(' ',$str);
@@ -56,11 +56,12 @@ function cseries($str) {
 		if(!is_numeric($lon)) { echo "<em>$cp</em> [$name]<br>\n"; continue; }
 		list($x,$y) = txcoord($lon,$lat);
 		if(is_null($slat)) {
-			#echo 'm ';
-			#$d[] = sprintf("%.2f,%.2f",$R*(1+$x),$R*(1-$y));
 			$d[] = (round($R*(1+$x)*8)/8).','.(round($R*(1-$y)*8)/8);
+		} elseif($par) {
+			#echo "par: $slon,$lat,$lon,$lat<br>\n";
+			mkline2($d,$slon,$slat,$lon,$lat,0.01);
 		} else {
-			#echo 'l ';
+			#echo "nop: $slon,$lat,$lon,$lat<br>\n";
 			mkline($d,$slon,$slat,$lon,$lat,0.01);
 		}
 		$slat=$lat;
@@ -80,19 +81,44 @@ function mkline(&$d,$ln0,$lt0,$ln1,$lt1,$off=0.1,$x0=null,$y0=null) {
 	list($x,$y) = txcoord($ln1,$lt1);
 	$i = 1.0;
 	while($i>0.001) {
-		$ln = $i*$ln1+(1-$i)*$ln0;
-		$lt = $i*$lt1+(1-$i)*$lt0;
+		list($xa,$ya,$za) = [sin(deg2rad($ln0))*cos(deg2rad($lt0)),sin(deg2rad($lt0)),cos(deg2rad($ln0))*cos(deg2rad($lt0))];
+		list($xb,$yb,$zb) = [sin(deg2rad($ln1))*cos(deg2rad($lt1)),sin(deg2rad($lt1)),cos(deg2rad($ln1))*cos(deg2rad($lt1))];
+		list($xm,$ym,$zm) = [$i*$xb+(1-$i)*$xa,$i*$yb+(1-$i)*$ya,$i*$zb+(1-$i)*$za];
+		$rm = sqrt($xm*$xm+$ym*$ym+$zm*$zm);
+		list($ln,$lt) = [rad2deg(atan2($xm,$zm)),rad2deg(asin($ym/$rm))];/* */
 		list($x,$y) = txcoord($ln,$lt);
 		if(abs($x-$x0)<$off && abs($y-$y0)<$off)
 			break;
 		$i*=0.63;
 	}
-	#$d[] = sprintf("%.2f,%.2f",$R*(1+$x),$R*(1-$y));
 	$d[] = (round($R*(1+$x)*8)/8).','.(round($R*(1-$y)*8)/8);
 	if($i<1.0) {
 		mkline($d,$ln,$lt,$ln1,$lt1,$off,$x,$y);
 	}
-	#echo "$i ($ln0,$lt0) ($ln,$lt) ($ln1,$lt1) <br>\n";
+}
+
+function mkline2(&$d,$ln0,$lt0,$ln1,$lt1,$off=0.1,$x0=null,$y0=null) {
+	global $R,$name;
+	if($ln0>90 && $ln1<-90)
+		return mkline($d,$ln0,$lt0,$ln1+360,$lt1,$off,$x0,$y0);
+	if($ln0<-90 && $ln1>90)
+		return mkline($d,$ln0+360,$lt0,$ln1,$lt1,$off,$x0,$y0);
+	if(is_null($y0))
+		list($x0,$y0) = txcoord($ln0,$lt0);
+	list($x,$y) = txcoord($ln1,$lt1);
+	$i = 1.0;
+	while($i>0.001) {
+		$ln = $i*$ln1+(1-$i)*$ln0;
+		$lt = $i*$lt1+(1-$i)*$lt0;/* */
+		list($x,$y) = txcoord($ln,$lt);
+		if(abs($x-$x0)<$off && abs($y-$y0)<$off)
+			break;
+		$i*=0.63;
+	}
+	$d[] = (round($R*(1+$x)*8)/8).','.(round($R*(1-$y)*8)/8);
+	if($i<1.0) {
+		mkline2($d,$ln,$lt,$ln1,$lt1,$off,$x,$y);
+	}
 }
 
 $styles = array();
@@ -197,29 +223,29 @@ $mer = empty($_GET['lines'])? (empty($_GET['mer'])? 15: (int)$_GET['mer']): (int
 $par = empty($_GET['lines'])? (empty($_GET['par'])? 15: (int)$_GET['par']): (int)$_GET['lines'];
 for($i=$par;$i<90;$i+=$par) {
 	$p = $layer->addChild('path');
-	$p->addAttribute('d','M'.cseries("-180,$i,0 -90,$i,0 0,$i,0 90,$i,0 180,$i,0"));
+	$p->addAttribute('d','M'.cseries("-180,$i,0 -90,$i,0 0,$i,0 90,$i,0 180,$i,0",true));
 	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
 	$p->addAttribute('id','par-'.abs($i).($i>0?'N':''));
 	if($i==0) continue;
 	$p = $layer->addChild('path');
-	$p->addAttribute('d','M'.cseries("-180,-$i,0 -90,-$i,0 0,-$i,0 90,-$i,0 180,-$i,0"));
+	$p->addAttribute('d','M'.cseries("-180,-$i,0 -90,-$i,0 0,-$i,0 90,-$i,0 180,-$i,0",true));
 	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
 	$p->addAttribute('id','par-'.abs($i).'S');
 }
 for($i=0;$i<=180;$i+=$mer) {
 	$p = $layer->addChild('path');
-	$p->addAttribute('d','M'.cseries("$i,89,0 $i,0,0 $i,-89,0"));
+	$p->addAttribute('d','M'.cseries("$i,89,0 $i,0,0 $i,-89,0",true));
 	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
 	$p->addAttribute('id','mer-'.abs($i).($i>0?'E':''));
 	if($i==0 || $i==180) continue;
 	$p = $layer->addChild('path');
-	$p->addAttribute('d','M'.cseries("-$i,89,0 -$i,0,0 -$i,-89,0"));
+	$p->addAttribute('d','M'.cseries("-$i,89,0 -$i,0,0 -$i,-89,0",true));
 	$p->addAttribute('style','fill:none;stroke:white;opacity:0.25');
 	$p->addAttribute('id','mer-'.abs($i).'W');
 }
 foreach(array('Equator'=>0,'TCan'=>23.5,'TCap'=>-23.5,'Art-PC'=>66.5,'Ant-PC'=>-66.5) as $n=>$i) {
 	$p = $layer->addChild('path');
-	$p->addAttribute('d','M'.cseries("-180,$i,0 -90,$i,0 0,$i,0 90,$i,0 180,$i,0"));
+	$p->addAttribute('d','M'.cseries("-180,$i,0 -90,$i,0 0,$i,0 90,$i,0 180,$i,0",true));
 	$p->addAttribute('style','fill:none;stroke:#578;stroke-dasharray:3,2,3,5');
 	$p->addAttribute('id',$n);
 }
