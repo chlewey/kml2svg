@@ -77,11 +77,15 @@ class lambaz_ea extends projection {
 }
 
 if(!isset($no_disp)) {
+	ob_start();
+
 	$P = new lambaz_ea();
 	$P->draw_base();
 	$P->make();
 	$P->setstyles();
 
+	$s = ob_get_clean();
 	echo $P->write();
+	if($s) echo "<!--\n$s\n-->\n";
 }
 ?>

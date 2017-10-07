@@ -147,10 +147,13 @@ class projection {
 	}
 
 	function shftrnd2($ar) {
+		$w = isset($this->width)? $this->width: 720;
+		$h = isset($this->height)? $this->height: 540;
+		return array(round($w*(1+$ar[0]))/2, round($h*(1-$ar[1]))/2);
 		return array(round($ar[0]*2)/2, round($ar[1]*2)/2);
 	}
 
-	function cseries($str, $par=false) {
+	function cseries($str, $par=false, $rev=false) {
 		$cpairs = explode(' ',$str);
 
 		$slon = $slat = null;
@@ -171,6 +174,7 @@ class projection {
 			$slat=$lat;
 			$slon=$lon;
 		}
+		if($rev) $d=array_reverse($d);
 		return implode(' ',$d);
 	}
 	
@@ -338,7 +342,19 @@ class projection {
 		if(isset($P->Polygon)) {
 			$co = $P->Polygon->outerBoundaryIs->LinearRing->coordinates;
 			$st = $P->styleUrl;
-			$p = $svg->newpoly($this->cseries($co),$id,$st);
+			$s = $this->cseries($co);
+			if(isset($P->Polygon->innerBoundaryIs)) {
+				$px = ["M $s z"];
+				foreach($P->Polygon->innerBoundaryIs as $i=>$ib) {
+					$co = $ib->LinearRing->coordinates;
+					$si = $this->cseries($co, false, true);
+					$px[] = "M $si z";
+				}
+				$p = $svg->newpath(implode(' ',$px),$id,$st);
+				$p->addAttribute('style','fill-rule:evenodd');
+			} else {
+				$p = $svg->newpoly($s,$id,$st);
+			}
 			$this->setstyle($p, $st);
 		} elseif(isset($P->Point)) {
 			$co = $P->Point->coordinates;
@@ -357,9 +373,18 @@ class projection {
 			$d = '';
 			foreach($P->MultiGeometry->Polygon as $i=>$mg) {
 				$co = $mg->outerBoundaryIs->LinearRing->coordinates;
-				$d.= 'M '.$this->cseries($co).' z';
+				$d.= 'M'.$this->cseries($co).'Z';
+				if(isset($mg->innerBoundaryIs)) {
+					foreach($mg->innerBoundaryIs as $j=>$ib) {
+						$co = $ib->LinearRing->coordinates;
+						$d.= " M".$this->cseries($co, false, true).'Zm0,0';
+					}
+#				} else {
+#					$p = $svg->newpoly($s,$id,$st);
+				}
 			}
 			$p = $svg->newpath($d,$id,$st);
+			$p->addAttribute('style','fill-rule:evenodd');
 			$this->setstyle($p, $st);/**/
 		} else {
 			echo "<strong> $name </strong><br/>\n";
