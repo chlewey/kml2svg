@@ -919,11 +919,21 @@ class map_data extends map_item {
 					}
 				}
 				elseif(preg_match('/^X([DQR])\s*[:-]\s+([^-]+?)\s*$/', $n, $m)) {
+					// XD - Object ==> deletes Object
+					// XQ - Object ==> adds line into Object
+					// XR - Object ==> adds line (reverse) into Object
 					$x = new map_line($action->coord, $m[2], $m[1]=='R');
 					if($m[1]=='D') $x->delete = true; else $x->reverse = true;
 					$lines[] = $x;
 				}
 				elseif(preg_match('/^X([DILMNPT])\s*[:-]\s+([^-]+?)\s+-\s+([^:]*\:)?([^][-]+?)(\[\d+\])?\s*$/', $n, $m)) {
+					// XD - Object1 - [Folder:]Object2 ==> deletes Object1 and Object2
+					// XI - Origin - [Folder:]Target ==> drill Origin into Target, deletes Origin
+					// XL - Origin - [Folder:]Target ==> drill Origin into Target, preserves Origin
+					// XM - Origin - [Folder:]Target ==> reshape Target from Origin, keeps Origin
+					// XN - Origin - [Folder:]Target ==> reshape Target from Origin, deletes Origin
+					// XP - Origin - [Folder:]Target ==> copy Origin into Target
+					// XT - Origin - [Folder:]Target ==> move Origin as Target (rename)
 					$from = $m[2];
 					$to = $m[4];
 					$len = count($action->coord);
@@ -940,12 +950,14 @@ class map_data extends map_item {
 						$F = isset($this->folders[$fold])? $this->folders[$fold]: $f;
 						if(isset($f->areas[$from])) {
 							if(($poly = $f->areas[$from]->find_poly($ini,$end,$m[1]=='L'))!==false) {
+								#if($ini!=$poly->outer[0]) errcho("{$from}->{$to}: {$ini} vs {$poly->outer[0]}");
 								$count++;
 								$poly->name = $to;
 								switch($m[1]) {
 									case 'I': // drill and erase source
 									case 'L': // drill and keep source
 									$poly->sub = isset($m[5])? (int)($m[5]): 0;
+									$poly->from = $from;
 									$holes[] = $poly;
 									break;
 									case 'M': // reshape target from source, keep source
@@ -977,12 +989,23 @@ class map_data extends map_item {
 					}
 				}
 				elseif(preg_match('/^X(-?[QR])\s*[:-]\s+([^-]+?)\s+-\s+([^-]+?)\s*$/', $n, $m)) {
+					// XQ - Object1 - Object2 ==> insert line into Object1 and Object2
+					// XR - Object1 - Object2 ==> insert line (reverse) into Object1 and Object2
 					$x = new map_line($action->coord, $m[2], $m[1]=='R');
 					$lines[] = $x;
 					$y = new map_line($action->coord, $m[3], $m[1]=='R');
 					$lines[] = $y;
 				}
 				elseif(preg_match('/^X(-?[ABCHVWXYZ])\s*[:-]\s+([^-]+?)\s+-\s+([^-]+?)\s*$/', $n, $m)) {
+					// XA - Source - Target ==> Annex Source into Target
+					// XB - ??? - ??? ==>
+					// XC - Source - Target ==> reshape Target from Source
+					// XH - Source - Target ==> reshape Target from reverse Source
+					// XV - ??? - ??? ==>
+					// XW - Source - Target ==> conform boundary of Target to Source
+					// XX - Source - Target ==> extend boundary of Target as Source (from point)
+					// XY - ??? - ??? ==>
+					// XZ - Source - Target ==> extend boundary of Target as Source (into point)
 					if(substr($m[1],0,1)=='-') {
 						$act = array_reverse($action->coord);
 						$m[1] = substr($m[1],1);
@@ -1101,7 +1124,7 @@ class map_data extends map_item {
 							#if(!$ct) $ct = $cf;
 							#else errcho("... X*{$m[1]} $from($cf) -> $to($ct)");
 
-							if($poly=$f->areas[$from]->find_poly($cf, $cf)) {
+							if($poly=$f->areas[$from]->find_poly($cf, $cf, in_array($m[1],['I','L']))) {
 								$record[$cf]++;
 								$poly->name = $to;
 								// copy shape into target
@@ -1112,6 +1135,7 @@ class map_data extends map_item {
 								// drill into target
 								if(in_array($m[1],['I','L'])) {
 									$poly->sub = $sub;
+									$poly->from = $from;
 									$holes[] = $poly;
 								}
 								// clear original sources
@@ -1204,9 +1228,14 @@ class map_data extends map_item {
 			if(isset($holes)) foreach($holes as $hole) {
 				$an = trim($hole->name);
 				if(!isset($founds[$an])) $founds[$an] = 0;
+				$from = isset($hole->from)? "from {$hole->from} ": "";
+				$len = count($hole->outer);
+				$ini = $hole->outer[0];
+				$ctrl = "$len points from $ini";
 				if(isset($folder->areas[$an])) {
 					++$founds[$an];
 					$folder->areas[$an]->add_hole($hole);
+					errcho("       Drilling into $an $from($ctrl).");
 				}
 			}
 			if(isset($adds)) foreach($adds as $poly) {

@@ -12,20 +12,22 @@ function find_between($value, array $arr) {
 	// unpredicted behavior is array is not ordered.
 	sort($arr);
 	$n = count($arr);
-	$k = (int)(($n+1)/2)
-	for($i=(int)($n/2),$j=-1; $i!=$j && $i+1<$n && $c<$n; $c*=2) {
+	$j = -1;
+	for($a=$n-1,$b=0;$a>$b;) {
+		$i = (int)(($a+$b)/2);
+		if($i==$j) break;
 		echo ". $i/$n";
 		$j = $i;
 		if(($v=$arr[$i])<=$value && $value<($w=$arr[$i+1])) return [$v,$w];
-		$k = (int)(($k+1)/2)
-		$i+= $v<$value? $k; -$k;
+		if($v<$value) $b=$i;
+		else $a=$i;
 	}
 	echo "\n";
 	return false;
 }
 
 $mollvalues = [0=>0.0, 90000=>M_PI_2];
-function molltheta($phi,$iter=7,$seed=false) {
+function molltheta($phi,$iter=5,$seed=false) {
 	if($phi<0) return -molltheta(-$phi);
 	echo sprintf( "Calculating θ for φ=%.6f (%.4f°) with %s.\n", $phi, rad2deg($phi), $seed===false?'no seed':"seed $seed");
 	global $mollvalues;
@@ -46,20 +48,22 @@ function molltheta($phi,$iter=7,$seed=false) {
 			$theta = $u+($v-$u)*$p;
 			echo "seed is $theta.\n";
 		} else {
-			$theta = $phi-$phi*$phi/M_PI_2+$phi*$phi*$phi/M_PI_2/M_PI_2;
+			$theta = (1-pow(1-$phi/M_PI_2,2/3))*M_PI_2;# $phi-$phi*$phi/M_PI_2+$phi*$phi*$phi/M_PI_2/M_PI_2;
 			echo "Using defaut initial value of θ=φ-2φ²/π+4φ³/π² == $theta\n";
 		}
 	} else
 		$theta = $seed;
 	$target = M_PI*sin($phi);
+	$dd=100;
 	for($i=0; $i<$iter; $i++) {
 		$th2 = 2*$theta;
 		$id = $th2+sin($th2);
 		$dif = $target-$id;
 		$did = 2+2*cos($th2);
-		echo sprintf("%5d, θ =%9.5f, 2θ+sin2θ =%9.5f, diff=%9.5f, 2+cos2θ=%9.5f, d=%10g. (%9.5f)\n", $i, $theta, $id, $dif, $did, $dif/$did, $th2);
-		if($id==$target) return $theta;
-		$theta += $dif/$did;
+		$d = $dif/$did;
+		echo sprintf("%5d, π sin φ =%9.5f, θ =%9.5f, 2θ+sin2θ =%9.5f, diff=%9.5f, 2+cos2θ=%9.5f, d=%10g (%10g). (%9.5f)\n", $i, $target, $theta, $id, $dif, $did, $d, $d+$dd, $th2);
+		if(abs($d+$dd)<=1e-20) { $theta + $d/=2; break; }
+		$theta += ($dd = $d);
 	}
 	$mollvalues[$Klat] = $theta;
 	ksort($mollvalues);
@@ -72,7 +76,7 @@ function mollseed() {
 		$phi1 = asin(($th2+sin($th2))/M_PI);
 		$lat = round(rad2deg($phi1),3);
 		$phi = deg2rad($lat);
-		molltheta($phi, 10, $theta); // it populates $mollvalues;
+		molltheta($phi, 10, deg2rad($theta)); // it populates $mollvalues;
 	}
 }
 
@@ -80,6 +84,7 @@ class mollweide extends projection {
 	function __construct($kmlfile, $width=1080, $height=540, $viewBox=null) {
 		mollseed();
 		projection::__construct($kmlfile, $width, $height, $viewBox);
+		#exit;
 	}
 
 	function txcoord($lon,$lat) {
@@ -114,7 +119,7 @@ $height = isset($_GET['height'])? $_GET['height']: 540;
 $lon = isset($_GET['lon'])? $_GET['lon']: 0;
 
 if(!isset($no_disp)) {
-	#ob_start();
+	ob_start();
 
 	$P = new mollweide($file,$width,$height);
 	$P->lon = $lon;
@@ -122,8 +127,8 @@ if(!isset($no_disp)) {
 	$P->make();
 	$P->setstyles();
 
-	#$s = ob_get_clean();
-	#echo $P->write();
+	$s = ob_get_clean();
+	echo $P->write();
 	if($s) echo "<!-- <![CDATA[\n".$s."\n]]> -->\n";
 }
 
